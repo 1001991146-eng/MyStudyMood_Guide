@@ -80,13 +80,35 @@
 
     <main class="container mx-auto px-4 py-12 space-y-16">
 
+        <!-- Introduction Section -->
+        <section id="intro" class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+            <h2 class="text-3xl font-bold text-brand-dark mb-6">ברוכים הבאים ל-My Study Mood 👋</h2>
+            <div class="space-y-4 text-lg text-slate-700 leading-relaxed">
+                <p>
+                    <strong>המטרה:</strong> בתקופת מבחנים, הדבר הכי קשה הוא לשמור על ריכוז. האפליקציה שנבנה נועדה לעזור למשתמשים להגדיר לעצמם "חוזה למידה" יומי: כמה שעות לומדים היום ומה משפט המוטיבציה שירים אותם כשהקצב יורד.
+                </p>
+                <p>
+                    <strong>איך נבנה את זה?</strong> הפרויקט מדמה בזעיר-אנפין את שלבי הפיתוח של פרויקט הבגרות שלכם:
+                </p>
+                <ul class="list-disc list-inside space-y-2 pr-4 marker:text-brand-primary">
+                    <li>נתחיל ב<strong>עיצוב ממשק משתמש (UI)</strong> נקי וברור ב-XML.</li>
+                    <li>נכתוב את ה<strong>לוגיקה (Java)</strong> שתחבר בין הרכיבים.</li>
+                    <li>נשתמש ב-<strong>Shared Preferences</strong> כדי שהנתונים יישמרו בזיכרון המכשיר לתמיד.</li>
+                    <li>נלמד איך לעבור בין מסכים באמצעות <strong>Intent</strong>.</li>
+                </ul>
+                <p class="font-bold text-brand-primary mt-4">
+                    זהו התרגול המושלם לפני שצוללים לפרויקט הגמר הגדול!
+                </p>
+            </div>
+        </section>
+
         <!-- Step 1: Concept & Setup -->
-        <section id="setup" class="grid md:grid-cols-2 gap-8 items-center">
+        <section id="setup" class="grid md:grid-cols-2 gap-8 items-center border-t pt-12">
             <div>
                 <div class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-bold mb-3">שלב 1</div>
-                <h3 class="text-3xl font-bold mb-4 text-brand-dark">מה אנחנו בונים?</h3>
+                <h3 class="text-3xl font-bold mb-4 text-brand-dark">הקמת הפרויקט</h3>
                 <p class="text-lg leading-relaxed mb-4">
-                    אפליקציה שתעזור לך להישאר בפוקוס. המשתמש יגדיר "יעד שעות למידה" ומשפט מוטיבציה, והמידע יישמר במכשיר ויוצג בכל פעם שנפתח את האפליקציה.
+                    נתחיל ביצירת התשתית. האפליקציה תורכב משני מסכים מרכזיים וקובץ זיכרון אחד.
                 </p>
                 <ul class="space-y-2 mb-6">
                     <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> <strong>Activity 1:</strong> מסך ראשי (תצוגה).</li>
@@ -95,7 +117,7 @@
                 </ul>
             </div>
             <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100">
-                <h4 class="font-bold border-b pb-2 mb-4">משימה ראשונה: יצירת פרויקט</h4>
+                <h4 class="font-bold border-b pb-2 mb-4">משימה ראשונה: יצירת פרויקט ב-Android Studio</h4>
                 <ol class="list-decimal list-inside space-y-3 text-sm">
                     <li>פתחו את <strong>Android Studio</strong>.</li>
                     <li>בחרו ב-<strong>New Project</strong> -> <strong>Empty Views Activity</strong>.</li>
