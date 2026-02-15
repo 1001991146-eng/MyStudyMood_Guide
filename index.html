@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Study Mood - המדריך המלא</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Rubik', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#1e293b',
+                            primary: '#3b82f6',
+                            accent: '#8b5cf6',
+                            light: '#f1f5f9'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Rubik', sans-serif; }
+        .code-block { direction: ltr; text-align: left; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navbar -->
+    <nav class="bg-brand-dark text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <i class="fas fa-brain text-brand-primary text-2xl"></i>
+                <h1 class="text-xl font-bold">My Study Mood <span class="text-sm font-normal opacity-75">| מדריך לתלמיד</span></h1>
+            </div>
+            <div class="hidden md:flex gap-6 text-sm">
+                <a href="#setup" class="hover:text-brand-primary transition">הקמת פרויקט</a>
+                <a href="#ui" class="hover:text-brand-primary transition">עיצוב</a>
+                <a href="#logic" class="hover:text-brand-primary transition">לוגיקה</a>
+                <a href="#data" class="hover:text-brand-primary transition">שמירת נתונים</a>
+                <a href="#github" class="hover:text-brand-primary transition">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-br from-brand-dark to-slate-800 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">בונים את אפליקציית הניהול האישי שלך</h2>
+            <p class="text-xl opacity-90 max-w-2xl mx-auto mb-8">
+                פרויקט תרגול המשלב את כל "יהלומי הליבה": מעבר מסכים, עיצוב UI, ושמירת נתונים ב-Shared Preferences.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#setup" class="bg-brand-primary hover:bg-blue-600 text-white px-6 py-3 rounded-full font-bold transition shadow-lg flex items-center gap-2">
+                    <i class="fas fa-play"></i> בואו נתחיל
+                </a>
+                <a href="#exam-tips" class="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full font-bold transition flex items-center gap-2 border border-white/30">
+                    <i class="fas fa-graduation-cap"></i> טיפים לבגרות
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12 space-y-16">
+
+        <!-- Step 1: Concept & Setup -->
+        <section id="setup" class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+                <div class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-bold mb-3">שלב 1</div>
+                <h3 class="text-3xl font-bold mb-4 text-brand-dark">מה אנחנו בונים?</h3>
+                <p class="text-lg leading-relaxed mb-4">
+                    אפליקציה שתעזור לך להישאר בפוקוס. המשתמש יגדיר "יעד שעות למידה" ומשפט מוטיבציה, והמידע יישמר במכשיר ויוצג בכל פעם שנפתח את האפליקציה.
+                </p>
+                <ul class="space-y-2 mb-6">
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> <strong>Activity 1:</strong> מסך ראשי (תצוגה).</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> <strong>Activity 2:</strong> מסך הגדרות (עריכה ושמירה).</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> <strong>Shared Preferences:</strong> ה"מוח" שזוכר הכל.</li>
+                </ul>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100">
+                <h4 class="font-bold border-b pb-2 mb-4">משימה ראשונה: יצירת פרויקט</h4>
+                <ol class="list-decimal list-inside space-y-3 text-sm">
+                    <li>פתחו את <strong>Android Studio</strong>.</li>
+                    <li>בחרו ב-<strong>New Project</strong> -> <strong>Empty Views Activity</strong>.</li>
+                    <li>שם הפרויקט: <code>MyStudyMood</code>.</li>
+                    <li>שפה: <strong>Java</strong>.</li>
+                    <li>וודאו שה-Minimum SDK הוא לפחות API 24 (מומלץ).</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Step 2: UI Design -->
+        <section id="ui">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="bg-brand-accent text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl">2</div>
+                <h3 class="text-3xl font-bold text-brand-dark">עיצוב המסכים (XML)</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Main Activity UI -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <div class="bg-slate-100 p-4 border-b font-bold flex justify-between">
+                        <span>activity_main.xml</span>
+                        <i class="fas fa-mobile-alt text-slate-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-slate-600 mb-4">המסך הזה רק מציג מידע. המשתמש לא מקליד כאן כלום.</p>
+                        <ul class="space-y-3 text-sm">
+                            <li class="bg-slate-50 p-2 rounded border-r-4 border-blue-500">
+                                <strong>TextView (כותרת):</strong> ברוכים הבאים
+                            </li>
+                            <li class="bg-slate-50 p-2 rounded border-r-4 border-blue-500">
+                                <strong>TextView (יעד):</strong> id: <code>tvGoalShow</code>
+                            </li>
+                            <li class="bg-slate-50 p-2 rounded border-r-4 border-blue-500">
+                                <strong>TextView (משפט):</strong> id: <code>tvQuoteShow</code>
+                            </li>
+                            <li class="bg-slate-50 p-2 rounded border-r-4 border-purple-500">
+                                <strong>Button (ערוך):</strong> id: <code>btnEdit</code><br>
+                                <span class="text-xs text-gray-500">בלחיצה נעבור למסך ההגדרות.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Settings Activity UI -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <div class="bg-slate-100 p-4 border-b font-bold flex justify-between">
+                        <span>activity_settings.xml</span>
+                        <i class="fas fa-cogs text-slate-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-slate-600 mb-4">כאן המשתמש מזין את הנתונים שלו.</p>
+                        <ul class="space-y-3 text-sm">
+                            <li class="bg-slate-50 p-2 rounded border-r-4 border-orange-500">
+                                <strong>EditText (מספר):</strong> id: <code>etGoalInput</code><br>
+                                <span class="text-xs text-gray-500">הגדירו inputType="number"</span>
+                            </li>
+                            <li class="bg-slate-50 p-2 rounded border-r-4 border-orange-500">
+                                <strong>EditText (טקסט):</strong> id: <code>etQuoteInput</code>
+                            </li>
+                            <li class="bg-slate-50 p-2 rounded border-r-4 border-green-500">
+                                <strong>Button (שמור):</strong> id: <code>btnSave</code>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 3: Logic & Data -->
+        <section id="data" class="bg-brand-dark text-white rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+
+            <h3 class="text-3xl font-bold mb-8 relative z-10">היהלום שבכתר: שמירת נתונים 💎</h3>
+            
+            <div class="grid lg:grid-cols-2 gap-10 relative z-10">
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-blue-300">איך שומרים? (במסך Settings)</h4>
+                    <p class="text-sm text-gray-300 mb-4">את הקוד הזה נכתוב בתוך ה-Listener של כפתור השמירה (btnSave).</p>
+                    
+                    <div class="bg-slate-900 rounded-lg p-4 font-mono text-xs md:text-sm shadow-inner code-block border border-slate-700">
+                        <span class="text-purple-400">SharedPreferences</span> sp = getSharedPreferences(<span class="text-green-400">"MyData"</span>, MODE_PRIVATE);<br>
+                        <span class="text-purple-400">SharedPreferences.Editor</span> editor = sp.edit();<br><br>
+                        
+                        <span class="text-gray-500">// 1. לקיחת המידע מהשדות</span><br>
+                        <span class="text-yellow-400">String</span> goal = etGoalInput.getText().toString();<br>
+                        <span class="text-yellow-400">String</span> quote = etQuoteInput.getText().toString();<br><br>
+                        
+                        <span class="text-gray-500">// 2. שמירה לקובץ</span><br>
+                        editor.putString(<span class="text-green-400">"saved_goal"</span>, goal);<br>
+                        editor.putString(<span class="text-green-400">"saved_quote"</span>, quote);<br>
+                        editor.apply(); <span class="text-gray-500">// חשוב מאוד! מבצע את השמירה</span><br><br>
+                        
+                        <span class="text-gray-500">// 3. סגירת המסך</span><br>
+                        finish();
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-green-300">איך קוראים? (במסך Main)</h4>
+                    <p class="text-sm text-gray-300 mb-4">את הקוד הזה נכתוב בתוך ה-<code>onCreate</code> או ה-<code>onResume</code>.</p>
+                    
+                    <div class="bg-slate-900 rounded-lg p-4 font-mono text-xs md:text-sm shadow-inner code-block border border-slate-700">
+                        <span class="text-purple-400">SharedPreferences</span> sp = getSharedPreferences(<span class="text-green-400">"MyData"</span>, MODE_PRIVATE);<br><br>
+                        
+                        <span class="text-gray-500">// שליפת הנתונים (עם ערך ברירת מחדל אם לא קיים)</span><br>
+                        <span class="text-yellow-400">String</span> goal = sp.getString(<span class="text-green-400">"saved_goal"</span>, <span class="text-green-400">"0"</span>);<br>
+                        <span class="text-yellow-400">String</span> quote = sp.getString(<span class="text-green-400">"saved_quote"</span>, <span class="text-green-400">"אין עדיין משפט"</span>);<br><br>
+                        
+                        <span class="text-gray-500">// הצגה למשתמש</span><br>
+                        tvGoalShow.setText(goal + <span class="text-green-400">" שעות"</span>);<br>
+                        tvQuoteShow.setText(quote);
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 4: GitHub Integration (Critical) -->
+        <section id="github" class="border-t pt-12">
+            <div class="text-center mb-10">
+                <i class="fab fa-github text-6xl text-brand-dark mb-4"></i>
+                <h3 class="text-3xl font-bold text-brand-dark">איך מעלים את הפרויקט ל-GitHub?</h3>
+                <p class="text-slate-600">המדריך המקוצר והבטוח לתלמידי י"א</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-xl shadow border-t-4 border-gray-800">
+                    <div class="text-4xl font-bold text-gray-200 mb-2">01</div>
+                    <h4 class="font-bold text-lg mb-2">יצירת Repository</h4>
+                    <p class="text-sm text-slate-600">היכנסו לאתר GitHub וצרו Repository חדש.<br> תנו לו שם (למשל <code>MyStudyApp</code>) והשאירו אותו <strong>Public</strong>.</p>
+                    <div class="mt-4 bg-yellow-50 p-2 rounded text-xs text-yellow-800 border border-yellow-200">
+                        <strong>חשוב:</strong> אל תסמנו את "Add README" או "Add .gitignore" בשלב זה. אנחנו רוצים תיקייה ריקה.
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-xl shadow border-t-4 border-gray-800">
+                    <div class="text-4xl font-bold text-gray-200 mb-2">02</div>
+                    <h4 class="font-bold text-lg mb-2">חיבור מתוך Android Studio</h4>
+                    <p class="text-sm text-slate-600 mb-2">הדרך הקלה ביותר היא דרך התפריט העליון:</p>
+                    <ol class="list-decimal list-inside text-sm space-y-2">
+                        <li>לחצו על תפריט <strong>VCS</strong> (או Git).</li>
+                        <li>בחרו <strong>Create Git Repository</strong>.</li>
+                        <li>בחרו את התיקייה של הפרויקט שלכם ולחצו OK.</li>
+                        <li>כעת כל הקבצים יהפכו לאדומים (זה תקין, הם טרם נשמרו).</li>
+                    </ol>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-xl shadow border-t-4 border-gray-800">
+                    <div class="text-4xl font-bold text-gray-200 mb-2">03</div>
+                    <h4 class="font-bold text-lg mb-2">Commit & Push</h4>
+                    <ol class="list-decimal list-inside text-sm space-y-2">
+                        <li>לחצו על ה-V הירוק (Commit) למעלה.</li>
+                        <li>סמנו את הקבצים, כתבו הודעה (למשל "Initial Commit") ולחצו <strong>Commit</strong>.</li>
+                        <li>בתפריט Git -> <strong>Manage Remotes</strong>.</li>
+                        <li>הוסיפו את הקישור שהעתקתם מ-GitHub בשלב 1.</li>
+                        <li>לחצו על <strong>Push</strong>.</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Troubleshooting -->
+            <div class="mt-8 bg-slate-100 p-6 rounded-lg text-sm">
+                <h5 class="font-bold flex items-center gap-2 mb-2"><i class="fas fa-exclamation-triangle text-orange-500"></i> מה קורה אם לא עובד? (דרך הטרמינל)</h5>
+                <p class="mb-2">לפעמים הממשק הגרפי עושה בעיות. פתחו את ה-Terminal למטה ב-Android Studio וכתבו:</p>
+                <div class="bg-black text-green-400 p-3 rounded font-mono text-xs code-block">
+                    git init<br>
+                    git add .<br>
+                    git commit -m "First upload"<br>
+                    git branch -M main<br>
+                    git remote add origin https://github.com/YourUser/YourRepo.git<br>
+                    git push -u origin main
+                </div>
+            </div>
+        </section>
+
+        <!-- Exam Prep Corner -->
+        <section id="exam-tips" class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-2xl p-8 text-center shadow-lg">
+            <h3 class="text-2xl font-bold mb-6"><i class="fas fa-question-circle"></i> שאלות בגרות נפוצות על הפרויקט</h3>
+            <div class="grid md:grid-cols-2 gap-4 text-right">
+                <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+                    <p class="font-bold text-yellow-300 text-sm mb-1">שאלה:</p>
+                    <p class="text-sm">"למה השתמשת ב-Shared Preferences ולא יצרת משתנה רגיל במחלקה?"</p>
+                    <div class="mt-2 text-xs text-gray-200 border-t border-white/20 pt-2">
+                        <strong>תשובה:</strong> משתנה רגיל נמחק מהזיכרון כשהאפליקציה נסגרת. אני צריך שהמידע יישמר באופן קבוע במכשיר כדי שהמשתמש יראה אותו גם מחר.
+                    </div>
+                </div>
+                <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+                    <p class="font-bold text-yellow-300 text-sm mb-1">שאלה:</p>
+                    <p class="text-sm">"האם אפשר לשמור תמונה ב-Shared Preferences?"</p>
+                    <div class="mt-2 text-xs text-gray-200 border-t border-white/20 pt-2">
+                        <strong>תשובה:</strong> טכנית זה מסובך (צריך להמיר למחרוזת Base64), כי SP נועד לנתונים קטנים כמו הגדרות, מספרים ומחרוזות פשוטות. לתמונות עדיף לשמור קובץ או להשתמש ב-Database.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
+        <p>© נוצר עבור תלמידי מגמת הנדסת תוכנה - פרויקט My Study Mood</p>
+        <p class="mt-2">בהצלחה בבגרות! 🚀</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
